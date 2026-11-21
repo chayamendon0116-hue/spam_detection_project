@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Spam Email Detection</h1>
+
+        <p class="subtitle">
+            Machine Learning Based Spam Detection System
+        </p>
+
+        <form method="POST">
+
+            <label>Enter Your Message</label>
+
+            <textarea name="message" placeholder="Type your email or message here..." required>{{ message }}</textarea>
+
+            <button type="submit">Check Message</button>
+
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <h2>Detection Result</h2>
+
+                {% if result == "SPAM" %}
+                    <p class="spam">⚠ This message is SPAM!</p>
+                {% else %}
+                    <p class="safe">✓ This message is NOT SPAM!</p>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <footer>
+            <p>Spam Detection System | MCA Machine Learning Project</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
